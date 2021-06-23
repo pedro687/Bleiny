@@ -24,7 +24,7 @@ public class UserController implements UserResource {
     @Override
     public ResponseEntity<?> create(@RequestBody @Valid UserDTO userDTO) {
         try {
-            return ResponseEntity.ok(userService.create(userDTO));
+            return ResponseEntity.status(201).body(userService.create(userDTO));
         } catch (Exception e) {
            return ResponseEntity.badRequest().body(e.getMessage());
         }
