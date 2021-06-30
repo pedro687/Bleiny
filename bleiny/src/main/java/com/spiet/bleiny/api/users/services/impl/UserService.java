@@ -1,6 +1,6 @@
 package com.spiet.bleiny.api.users.services.impl;
 
-import com.spiet.bleiny.api.users.http.dto.UserDTO;
+import com.spiet.bleiny.api.users.dto.UserDTO;
 import com.spiet.bleiny.api.users.repositories.UserRepository;
 import com.spiet.bleiny.api.users.services.IUserService;
 import com.spiet.bleiny.api.users.utils.UserConverter;
@@ -8,7 +8,6 @@ import com.spiet.bleiny.shared.exceptions.EmailAlreadyExistsException;
 import com.spiet.bleiny.shared.infra.utils.EmailValidator;
 import com.spiet.bleiny.shared.infra.utils.TellphoneValidator;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

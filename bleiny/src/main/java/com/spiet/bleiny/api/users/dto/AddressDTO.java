@@ -1,4 +1,4 @@
-package com.spiet.bleiny.api.users.http.dto;
+package com.spiet.bleiny.api.users.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

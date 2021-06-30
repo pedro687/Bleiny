@@ -1,6 +1,6 @@
 package com.spiet.bleiny.api.users.utils;
 
-import com.spiet.bleiny.api.users.http.dto.AddressDTO;
+import com.spiet.bleiny.api.users.dto.AddressDTO;
 import com.spiet.bleiny.shared.domain.Address;
 import com.spiet.bleiny.shared.domain.User;
 import org.springframework.stereotype.Component;

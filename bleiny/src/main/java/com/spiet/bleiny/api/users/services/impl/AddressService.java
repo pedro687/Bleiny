@@ -1,6 +1,6 @@
 package com.spiet.bleiny.api.users.services.impl;
 
-import com.spiet.bleiny.api.users.http.dto.AddressDTO;
+import com.spiet.bleiny.api.users.dto.AddressDTO;
 import com.spiet.bleiny.api.users.repositories.AddressRepository;
 import com.spiet.bleiny.api.users.services.IAddressService;
 import com.spiet.bleiny.api.users.utils.AddressConverter;

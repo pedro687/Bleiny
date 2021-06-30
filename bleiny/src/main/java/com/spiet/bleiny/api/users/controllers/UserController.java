@@ -1,11 +1,10 @@
-package com.spiet.bleiny.api.users.http.controllers;
+package com.spiet.bleiny.api.users.controllers;
 
-import com.spiet.bleiny.api.users.http.dto.UserDTO;
+import com.spiet.bleiny.api.users.dto.UserDTO;
 import com.spiet.bleiny.api.users.resources.UserResource;
 import com.spiet.bleiny.api.users.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 

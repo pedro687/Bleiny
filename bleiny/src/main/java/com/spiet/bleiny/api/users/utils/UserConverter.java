@@ -1,15 +1,10 @@
 package com.spiet.bleiny.api.users.utils;
 
-import com.spiet.bleiny.api.users.http.dto.UserDTO;
-import com.spiet.bleiny.shared.domain.Address;
+import com.spiet.bleiny.api.users.dto.UserDTO;
 import com.spiet.bleiny.shared.domain.User;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Data
 @ToString

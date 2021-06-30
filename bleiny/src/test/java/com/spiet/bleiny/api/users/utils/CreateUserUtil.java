@@ -3,8 +3,8 @@ package com.spiet.bleiny.api.users.utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import com.spiet.bleiny.api.users.http.dto.UserDTO;
-import com.spiet.bleiny.api.users.http.dto.AddressDTO;
+import com.spiet.bleiny.api.users.dto.UserDTO;
+import com.spiet.bleiny.api.users.dto.AddressDTO;
 
 @Component
 public class CreateUserUtil {

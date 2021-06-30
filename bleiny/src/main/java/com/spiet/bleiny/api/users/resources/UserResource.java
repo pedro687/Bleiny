@@ -1,9 +1,8 @@
 package com.spiet.bleiny.api.users.resources;
 
-import com.spiet.bleiny.api.users.http.dto.UserDTO;
+import com.spiet.bleiny.api.users.dto.UserDTO;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 

@@ -1,29 +1,26 @@
 package com.spiet.bleiny.api.users.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.spiet.bleiny.api.users.http.dto.AddressDTO;
-import com.spiet.bleiny.api.users.utils.CreateUserUtil;
+import com.spiet.bleiny.api.users.dto.AddressDTO;
+import com.spiet.bleiny.api.users.dto.UserDTO;
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import com.spiet.bleiny.api.users.http.controllers.UserController;
 import org.springframework.test.web.servlet.MockMvc;
 import com.spiet.bleiny.api.users.services.IUserService;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import com.spiet.bleiny.api.users.http.dto.UserDTO;
 import com.spiet.bleiny.shared.config.PasswordEncoderConfig;
 
 @ExtendWith(SpringExtension.class)
@@ -58,6 +55,7 @@ public class UserControllerTest {
     }
 
     @Test
+    @DisplayName("Deve Criar um usuário")
     void shouldBeAbleCreateUser() throws Exception {
         var userDto = createDto();
 
@@ -74,5 +72,19 @@ public class UserControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.jsonPath("email").value(userDto.getEmail()))
                 .andExpect(MockMvcResultMatchers.jsonPath("username").value(userDto.getUsername()));
+    }
+
+    @Test
+    @DisplayName("Não Deve Criar um usuário")
+    void mayNotBeAbleToCreateAUser() throws Exception {
+        String json = "";
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post(BASE_URL.concat("/register"))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(json);
+
+        mockMvc.perform(request)
+                .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 }

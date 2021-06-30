@@ -1,11 +1,11 @@
-package com.spiet.bleiny.api.users.http.dto;
+package com.spiet.bleiny.api.users.dto;
 
+import com.spiet.bleiny.api.users.dto.AddressDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 
@@ -16,20 +16,16 @@ import javax.validation.constraints.NotNull;
 public class UserDTO {
 
     @NotNull
-    @NotEmpty
     private String username;
 
     @NotNull
-    @NotEmpty
     private String email;
 
     @NotNull
-    @NotEmpty
     private String password;
 
     private String tellphone;
 
     @NotNull
-    @NotEmpty
     private AddressDTO address;
 }
