@@ -19,9 +19,6 @@ import java.util.List;
 @RestControllerAdvice
 public class ExceptionGlobalHandling {
 
-    @Autowired
-    private MessageSource messageSource;
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public List<FormErrorDto> methodArgumentNotValidException(MethodArgumentNotValidException e) {
@@ -30,8 +27,8 @@ public class ExceptionGlobalHandling {
         var fieldErrors = e.getBindingResult().getFieldErrors();
 
         fieldErrors.forEach(err -> {
-            String message = messageSource.getMessage(err, LocaleContextHolder.getLocale());
-            formErrorDtos.add(new FormErrorDto(err.getField(), message));
+            //String message = messageSource.getMessage(err, LocaleContextHolder.getLocale());
+            formErrorDtos.add(new FormErrorDto(err.getField(), err.getDefaultMessage()));
         });
 
         return formErrorDtos;
