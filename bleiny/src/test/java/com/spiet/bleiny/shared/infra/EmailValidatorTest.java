@@ -14,14 +14,14 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class EmailValidatorTest {
 
     @Test
-    @DisplayName("should be able accept a valid email")
+    @DisplayName("should be able to accept a valid email ")
     void testValidEmail() {
         var test = new EmailValidator("pedrosilva@gmail.com");
         Assertions.assertEquals(test.getEmail(), "pedrosilva@gmail.com");
     }
 
     @Test
-    @DisplayName("should not be able accept a invalid email")
+    @DisplayName("should not be able to accept an invalid email")
     void testInvalidEmail() {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> new EmailValidator("jondoe"));
