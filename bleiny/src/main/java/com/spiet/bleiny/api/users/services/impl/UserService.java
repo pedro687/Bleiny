@@ -3,6 +3,7 @@ package com.spiet.bleiny.api.users.services.impl;
 import com.spiet.bleiny.api.users.dto.UserDTO;
 import com.spiet.bleiny.api.users.repositories.UserRepository;
 import com.spiet.bleiny.api.users.services.IUserService;
+import com.spiet.bleiny.api.users.services.IAddressService;
 import com.spiet.bleiny.api.users.utils.UserConverter;
 import com.spiet.bleiny.shared.exceptions.EmailAlreadyExistsException;
 import com.spiet.bleiny.shared.infra.utils.EmailValidator;
@@ -21,9 +22,9 @@ public class UserService implements IUserService {
 
     private final UserConverter userConverter;
 
-    private final AddressService addressService;
+    private final IAddressService addressService;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, UserConverter userConverter, AddressService addressService) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, UserConverter userConverter, IAddressService addressService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.userConverter = userConverter;
