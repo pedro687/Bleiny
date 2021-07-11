@@ -1,0 +1,26 @@
+server:
+  port: 8887
+
+jwt:
+  secret: react123
+
+spring:
+  application:
+    name: bleiny-gateway
+
+zuul:
+  routes:
+    bleiny:
+      service-id: bleiny-core
+      path: /bleiny-core/**
+
+    auth:
+      service-id: bleiny-auth
+      path: /bleiny-auth/**
+      sensitive-headers: Cookie,Set-Cookie
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
