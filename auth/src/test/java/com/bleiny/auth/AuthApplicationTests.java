@@ -1,12 +1,10 @@
-package com.spiet.bleiny;
+package com.bleiny.auth;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-@EnableEurekaClient
 @SpringBootTest
-class BleinyApplicationTests {
+class AuthApplicationTests {
 
     @Test
     void contextLoads() {

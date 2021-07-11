@@ -38,7 +38,7 @@ public class User {
     @Column(nullable = true)
     private String image;
 
-    @OneToMany(mappedBy = "user")
-    private List<Address> address;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+    private Address address;
 
 }
