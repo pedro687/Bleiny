@@ -14,6 +14,7 @@ public interface UserResource {
     @GetMapping(path = "/findByEmail/{email}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<?> findByEmail(@PathVariable String email);
 
+
     @GetMapping
     String hello();
 }

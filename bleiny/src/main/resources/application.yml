@@ -1,5 +1,3 @@
-
-
 server:
   port: 8080
   servlet:
@@ -8,7 +6,6 @@ server:
 spring:
   jpa:
     database: MYSQL
-    show-sql: true
 
   datasource:
     url: jdbc:mysql://localhost:3306/bleiny?useTimezone=true&serverTimezone=UTC&createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
