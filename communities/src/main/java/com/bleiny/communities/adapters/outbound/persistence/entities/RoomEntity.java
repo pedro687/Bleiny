@@ -26,6 +26,6 @@ public class RoomEntity implements Serializable {
 
     private Boolean isVoice;
 
-    @ManyToOne()
+    @ManyToOne
     private CommunityEntity id_community;
 }

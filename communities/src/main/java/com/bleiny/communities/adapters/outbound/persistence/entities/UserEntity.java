@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -16,13 +17,14 @@ import java.util.List;
 @Table(name = "TB_USER")
 public class UserEntity implements Serializable {
 
-    private String uuid;
-
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String uuid;
 
     private String username;
 
-
+    @ManyToMany(mappedBy = "members")
+    private Set<CommunityEntity> communities;
 }
