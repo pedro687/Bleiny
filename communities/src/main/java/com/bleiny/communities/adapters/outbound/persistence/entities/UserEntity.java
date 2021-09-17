@@ -27,4 +27,8 @@ public class UserEntity implements Serializable {
 
     @ManyToMany(mappedBy = "members")
     private Set<CommunityEntity> communities;
+
+
+    @ManyToMany(mappedBy = "leader")
+    private Set<CommunityEntity> community_leader;
 }

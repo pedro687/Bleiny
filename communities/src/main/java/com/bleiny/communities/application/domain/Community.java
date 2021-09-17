@@ -6,7 +6,7 @@ public class Community {
 
     private String communityName;
 
-    private String communityLeader;
+    private Long leader_community_id;
 
     private List<Room> rooms;
 

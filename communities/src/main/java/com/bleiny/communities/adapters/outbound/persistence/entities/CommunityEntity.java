@@ -26,14 +26,23 @@ public class CommunityEntity implements Serializable {
 
     private String communityName;
 
-    private Long communityLeader_id;
+    @ManyToOne
+    private UserEntity leader_community_id;
+
+    private String description;
 
     @OneToMany(mappedBy = "id_community")
     private List<RoomEntity> rooms;
 
     @ManyToMany
     @JoinTable(name = "TB_SERVER_MEMBER",
-    joinColumns = @JoinColumn( name = "server_id"),
+    joinColumns = @JoinColumn( name = "community_id"),
     inverseJoinColumns = @JoinColumn(name = "member_id"))
     private Set<UserEntity> members;
+
+    @ManyToMany
+    @JoinTable(name = "TB_SERVER_LEADER",
+            joinColumns = @JoinColumn( name = "community_id"),
+            inverseJoinColumns = @JoinColumn(name = "leader_id"))
+    private Set<UserEntity> leader;
 }
