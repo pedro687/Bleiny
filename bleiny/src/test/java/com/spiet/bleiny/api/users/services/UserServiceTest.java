@@ -5,6 +5,8 @@ import com.spiet.bleiny.api.users.dto.UserDTO;
 import com.spiet.bleiny.api.users.services.impl.UserService;
 import com.spiet.bleiny.shared.config.PasswordEncoderConfig;
 import com.spiet.bleiny.shared.domain.User;
+import com.spiet.bleiny.shared.infra.ApiException;
+import com.spiet.bleiny.shared.producer.CommunityProducerService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -38,9 +40,12 @@ public class UserServiceTest {
     @MockBean
     private IAddressService addressService;
 
+    @MockBean
+    private CommunityProducerService communityProducerService;
+
     @BeforeEach
     public void setUp() {
-        this.userService = new UserService(userRepository, passwordEncoder , userConverter, addressService);
+        this.userService = new UserService(userRepository, passwordEncoder , userConverter, addressService, communityProducerService);
     }
 
     public UserDTO createDto() {
@@ -61,7 +66,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("Deve Criar um usuário")
-    void testCreateUser() {
+    void testCreateUser() throws ApiException {
         var dto = createDto();
         var converter = new ModelMapper().map(dto, User.class);
         Mockito.when(userRepository.save(converter)).thenReturn(converter);

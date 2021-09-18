@@ -4,6 +4,7 @@ import com.spiet.bleiny.api.users.dto.AddressDTO;
 import com.spiet.bleiny.api.users.dto.ResponseUserDTO;
 import com.spiet.bleiny.api.users.dto.UserDTO;
 import com.spiet.bleiny.shared.domain.User;
+import com.spiet.bleiny.shared.producer.dto.SendUserToCommunityMessageDTO;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +47,14 @@ public class UserConverter {
         var converter = new ResponseUserDTO();
         converter.setEmail(user.getEmail());
         return converter;
+    }
+
+    public SendUserToCommunityMessageDTO userToMessage(User user) {
+        var message = new SendUserToCommunityMessageDTO();
+        message.setUserName(user.getUsername());
+        message.setUuid(user.getUuid());
+        message.setId(user.getId());
+
+        return message;
     }
 }

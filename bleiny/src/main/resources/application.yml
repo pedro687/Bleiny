@@ -20,3 +20,6 @@ eureka:
     service-url:
         defaultZone: http://localhost:8761/eureka
 
+kafka:
+  topics:
+    community_topic: bleiny_community_topic

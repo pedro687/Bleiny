@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestControllerAdvice
-public class ExceptionGlobalHandling {
+public class ExceptionGlobalRestHandling {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
