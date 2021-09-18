@@ -1,1 +1,12 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /api/community
 
+spring:
+  application:
+    name: ms-communities
+
+kafka:
+  topic:
+    listener_user: bleiny_community_topic

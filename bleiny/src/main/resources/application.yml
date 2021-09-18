@@ -23,3 +23,7 @@ eureka:
 kafka:
   topics:
     community_topic: bleiny_community_topic
+
+log:
+  retention:
+    hours: 5

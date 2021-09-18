@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Primary
-public class MySqlCommunityRepository implements CommunityRepositoryPort {
+public class PostgresCommunityRepository implements CommunityRepositoryPort {
     private final SpringDataCommunityRepository repository;
     private ModelMapper mapper;
 
-    public MySqlCommunityRepository(SpringDataCommunityRepository repository, ModelMapper mapper) {
+    public PostgresCommunityRepository(SpringDataCommunityRepository repository, ModelMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
