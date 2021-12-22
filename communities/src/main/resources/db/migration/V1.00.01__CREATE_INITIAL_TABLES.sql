@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS TB_COMMUNITY(
     id BIGSERIAL primary key,
     uuid varchar(150) unique not null,
-    communityName varchar(150) not null,
-    communityLeader_id integer not null,
+    community_Name varchar(150) not null,
+    community_leader_id integer not null,
     description varchar(250) default null
     );
 

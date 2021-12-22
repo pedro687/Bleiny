@@ -1,16 +1,22 @@
 package com.bleiny.communities.application.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.util.List;
 
+@ToString
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Community {
 
     private String communityName;
 
-    private Long leader_community_id;
+    private Long communityLeaderId;
 
-    private List<Room> rooms;
+    private String description;
 
-    private List<Users> members;
-
-    private List<Roles> roles;
 }

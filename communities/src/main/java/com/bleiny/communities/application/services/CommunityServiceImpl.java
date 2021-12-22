@@ -21,9 +21,10 @@ public class CommunityServiceImpl implements CommunityServicePort {
     }
 
     @Override
-    public Community createCommunity(CommunityDTO dto) {
-        log.info("Criando comunidade: {}", dto);
+    public CommunityDTO createCommunity(CommunityDTO dto) {
+        log.info("Creating community: {}", dto);
         var convert = modelMapper.map(dto, Community.class);
-        return communityRepositoryPort.save(convert);
+        communityRepositoryPort.save(convert);
+        return dto;
     }
 }

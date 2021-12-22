@@ -27,7 +27,7 @@ public class CommunityEntity implements Serializable {
     private String communityName;
 
     @ManyToOne
-    private UserEntity leader_community_id;
+    private UserEntity communityLeader;
 
     private String description;
 
