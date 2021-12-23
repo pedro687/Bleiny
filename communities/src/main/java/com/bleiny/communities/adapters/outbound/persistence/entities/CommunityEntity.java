@@ -34,11 +34,14 @@ public class CommunityEntity implements Serializable {
     @OneToMany(mappedBy = "id_community")
     private List<RoomEntity> rooms;
 
-    @ManyToMany
+    @Column(name = "member_quantity")
+    private Integer memberQuantity;
+
+    /*@ManyToMany
     @JoinTable(name = "TB_SERVER_MEMBER",
     joinColumns = @JoinColumn( name = "community_id"),
     inverseJoinColumns = @JoinColumn(name = "member_id"))
-    private Set<UserEntity> members;
+    private Set<UserEntity> members;*/
 
     @ManyToMany
     @JoinTable(name = "TB_SERVER_LEADER",

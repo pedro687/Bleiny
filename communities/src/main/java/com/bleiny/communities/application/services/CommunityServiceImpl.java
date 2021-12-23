@@ -2,6 +2,7 @@ package com.bleiny.communities.application.services;
 
 import com.bleiny.communities.adapters.inbound.dtos.CommunityDTO;
 import com.bleiny.communities.application.domain.Community;
+import com.bleiny.communities.application.exceptions.ApiException;
 import com.bleiny.communities.application.ports.CommunityRepositoryPort;
 import com.bleiny.communities.application.ports.CommunityServicePort;
 import lombok.extern.slf4j.Slf4j;
@@ -27,4 +28,11 @@ public class CommunityServiceImpl implements CommunityServicePort {
         communityRepositoryPort.save(convert);
         return dto;
     }
+
+    @Override
+    public CommunityDTO findById(Long id) throws ApiException {
+        var community = communityRepositoryPort.findById(id);
+        return modelMapper.map(community, CommunityDTO.class);
+    }
+
 }

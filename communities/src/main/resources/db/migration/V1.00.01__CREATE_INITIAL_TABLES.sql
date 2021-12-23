@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS TB_COMMUNITY(
     uuid varchar(150) unique not null,
     community_Name varchar(150) not null,
     community_leader_id integer not null,
+    member_quantity integer default null,
     description varchar(250) default null
     );
 

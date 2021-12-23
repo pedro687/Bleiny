@@ -2,9 +2,9 @@ package com.bleiny.communities.adapters.configurations;
 
 import com.bleiny.communities.CommunitiesApplication;
 import com.bleiny.communities.adapters.inbound.consumer.ListenerCommunityUserMessages;
-import com.bleiny.communities.application.ports.CommunityRepositoryPort;
-import com.bleiny.communities.application.ports.UserRepositoryPort;
+import com.bleiny.communities.application.ports.*;
 import com.bleiny.communities.application.services.CommunityServiceImpl;
+import com.bleiny.communities.application.services.ServerMemberServiceImpl;
 import com.bleiny.communities.application.services.UserServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +28,11 @@ public class BeanConfiguration {
     @Bean
     UserServiceImpl userService(UserRepositoryPort repository, ModelMapper modelMapper) {
         return new UserServiceImpl(repository, modelMapper);
+    }
+
+    @Bean
+    ServerMemberServiceImpl serverMemberService(ServerMemberRepositoryPort repositoryPort, CommunityServicePort communityServicePort,
+                                                UserServicePort userRepositoryPort, ModelMapper modelMapper) {
+        return new ServerMemberServiceImpl(repositoryPort, communityServicePort, userRepositoryPort, modelMapper);
     }
 }

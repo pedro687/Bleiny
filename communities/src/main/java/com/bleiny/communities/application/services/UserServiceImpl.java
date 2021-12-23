@@ -27,4 +27,14 @@ public class UserServiceImpl implements UserServicePort {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public Users findById(Long id) throws ApiException {
+        try {
+            return userRepositoryPort.findById(id).orElseThrow(() ->
+                    ApiException.notFound("User not found", "Usuário não existe na base"));
+        } catch (Exception e) {
+           throw ApiException.notFound("User not found", "Usuário não existe na base");
+        }
+    }
 }
