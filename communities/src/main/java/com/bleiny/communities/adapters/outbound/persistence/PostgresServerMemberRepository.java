@@ -26,4 +26,9 @@ public class PostgresServerMemberRepository implements ServerMemberRepositoryPor
     public void save(ServerMemberEntity serverMemberEntity) {
         repository.save(serverMemberEntity);
     }
+
+    @Override
+    public boolean memberAlreadyInServer(Long idUser, Long idCommunity) {
+        return repository.existsByUserIdAndCommunityId(idUser, idCommunity);
+    }
 }

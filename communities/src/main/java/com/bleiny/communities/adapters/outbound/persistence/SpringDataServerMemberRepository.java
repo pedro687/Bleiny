@@ -4,4 +4,5 @@ import com.bleiny.communities.adapters.outbound.persistence.entities.ServerMembe
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SpringDataServerMemberRepository extends JpaRepository<ServerMemberEntity, Long> {
+    boolean existsByUserIdAndCommunityId(Long idUser, Long idCommunity);
 }

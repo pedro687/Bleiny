@@ -1,6 +1,5 @@
 package com.bleiny.communities.adapters.inbound.controllers;
 
-import com.bleiny.communities.adapters.inbound.dtos.CommunityDTO;
 import com.bleiny.communities.adapters.inbound.dtos.ServerMemberEnjoyDTO;
 import com.bleiny.communities.application.ports.CommunityServicePort;
 import com.bleiny.communities.application.ports.ServerMemberServicePort;
@@ -9,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

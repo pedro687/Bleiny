@@ -20,11 +20,15 @@ public class UserServiceImpl implements UserServicePort {
     }
 
     @Override
-    public void createUser(Users dto) {
+    public void createUser(Users dto) throws ApiException {
         try {
+            if (dto == null) {
+                throw ApiException.badRequest("Error on save user", "Usuário nulo");
+            }
             userRepositoryPort.save(dto);
         } catch (ApiException e) {
             e.printStackTrace();
+            throw ApiException.badRequest("Error on save user", e.getMessage());
         }
     }
 

@@ -32,6 +32,11 @@ public class ServerMemberServiceImpl implements ServerMemberServicePort {
     public void enjoyCommunity(ServerMemberEnjoyDTO dto) throws ApiException {
         try {
             log.info("Joining {} to {}", dto.getIdUser(), dto.getIdCommunity());
+
+            if (memberAlreadyInCommunity(dto.getIdUser(), dto.getIdCommunity())) {
+               throw  ApiException.conflict("Error on enjoying community" , "Usuário ja está nesta comunidade");
+            }
+
             var user = userServicePort.findById(dto.getIdUser());
             var community = communityServicePort.findById(dto.getIdCommunity());
 
@@ -42,7 +47,12 @@ public class ServerMemberServiceImpl implements ServerMemberServicePort {
             serverMemberRepositoryPort.save(serverMember);
         } catch (Exception e) {
             log.error("Error on enjoying community: {}", e.getMessage());
-            throw ApiException.badRequest("Error on enjoying community" , e.getMessage());
+            throw ApiException.conflict("Error on enjoying community" , e.getMessage());
         }
+    }
+
+    @Override
+    public boolean memberAlreadyInCommunity(Long idUser, Long idCommunity) {
+        return serverMemberRepositoryPort.memberAlreadyInServer(idUser, idCommunity);
     }
 }

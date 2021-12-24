@@ -6,5 +6,5 @@ import org.springframework.http.ResponseEntity;
 
 public interface ServerMemberServicePort {
    void enjoyCommunity(ServerMemberEnjoyDTO dto) throws ApiException;
-
+   boolean memberAlreadyInCommunity(Long idUser, Long idCommunity);
 }
