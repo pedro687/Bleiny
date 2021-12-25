@@ -61,4 +61,20 @@ class UserServiceImplUnitTest {
 
         Assertions.assertThat(findUser).isEqualTo(user);
     }
+
+    @Test
+    @DisplayName("Should not return a user")
+    void findUserById_error() throws ApiException {
+        var user = Users
+                .builder()
+                .id(1L)
+                .username("Jon Doe")
+                .uuid("13732e76-79b2-4597-be16-772f19d5227d")
+                .build();
+
+        //Mockito.when(userRepositoryPort.findById(user.getId())).thenReturn(java.util.Optional.empty());
+        Throwable throwable = Assertions.catchThrowable(() -> userServicePort.findById(user.getId()));
+
+        Assertions.assertThat(throwable).isInstanceOf(Exception.class);
+    }
 }
