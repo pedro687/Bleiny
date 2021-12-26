@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SpringDataCommunityRepository extends JpaRepository<CommunityEntity, Long> {
+    CommunityEntity findByUuid(String uuid);
 }

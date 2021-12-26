@@ -31,4 +31,9 @@ public class PostgresCommunityRepository implements CommunityRepositoryPort {
         var user = repository.findById(id).orElseThrow(() -> ApiException.notFound("Community Not Found", "Comunidade não encontrado"));
         return mapper.map(user, Community.class);
     }
+
+    @Override
+    public Community findByUud(String uuid) throws ApiException {
+        return mapper.map(repository.findByUuid(uuid), Community.class);
+    }
 }

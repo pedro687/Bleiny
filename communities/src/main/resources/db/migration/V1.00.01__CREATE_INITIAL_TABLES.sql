@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS TB_ROOM(
     id BIGSERIAL primary key,
     uuid varchar(150) unique not null,
     roomName varchar(150) not null,
+    is_voice boolean,
     community_id integer,
     FOREIGN KEY(community_id) REFERENCES TB_COMMUNITY(id)
 );

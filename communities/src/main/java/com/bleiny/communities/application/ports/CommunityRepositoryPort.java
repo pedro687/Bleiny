@@ -6,4 +6,5 @@ import com.bleiny.communities.application.exceptions.ApiException;
 public interface CommunityRepositoryPort {
     Community save(Community community);
     Community findById(Long id) throws ApiException;
+    Community findByUud(String uuid) throws ApiException;
 }

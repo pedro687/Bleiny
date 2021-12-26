@@ -7,4 +7,5 @@ import com.bleiny.communities.application.exceptions.ApiException;
 public interface CommunityServicePort {
     CommunityDTO createCommunity(CommunityDTO dto);
     CommunityDTO findById(Long id) throws ApiException;
+    Community findByUuid(String uuid);
 }

@@ -35,4 +35,9 @@ public class CommunityServiceImpl implements CommunityServicePort {
         return modelMapper.map(community, CommunityDTO.class);
     }
 
+    @Override
+    public Community findByUuid(String uuid) {
+        return null;
+    }
+
 }

@@ -30,7 +30,7 @@ public class CommunityEntity implements Serializable {
 
     private String description;
 
-    @OneToMany(mappedBy = "id_community")
+    @OneToMany(mappedBy = "community")
     private List<RoomEntity> rooms;
 
     @Column(name = "member_quantity")

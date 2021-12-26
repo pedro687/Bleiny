@@ -22,10 +22,11 @@ public class RoomEntity implements Serializable {
 
     private String uuid = UUID.randomUUID().toString();
 
+    @Column(name = "roomname")
     private String roomName;
 
     private Boolean isVoice;
 
     @ManyToOne
-    private CommunityEntity id_community;
+    private CommunityEntity community;
 }

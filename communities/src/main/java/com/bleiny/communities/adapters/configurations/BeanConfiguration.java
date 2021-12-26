@@ -4,6 +4,7 @@ import com.bleiny.communities.CommunitiesApplication;
 import com.bleiny.communities.adapters.inbound.consumer.ListenerCommunityUserMessages;
 import com.bleiny.communities.application.ports.*;
 import com.bleiny.communities.application.services.CommunityServiceImpl;
+import com.bleiny.communities.application.services.RoomServiceImpl;
 import com.bleiny.communities.application.services.ServerMemberServiceImpl;
 import com.bleiny.communities.application.services.UserServiceImpl;
 import org.modelmapper.ModelMapper;
@@ -34,5 +35,10 @@ public class BeanConfiguration {
     ServerMemberServiceImpl serverMemberService(ServerMemberRepositoryPort repositoryPort, CommunityServicePort communityServicePort,
                                                 UserServicePort userRepositoryPort, ModelMapper modelMapper) {
         return new ServerMemberServiceImpl(repositoryPort, communityServicePort, userRepositoryPort, modelMapper);
+    }
+
+    @Bean
+    RoomServiceImpl roomService(ModelMapper modelMapper, RoomRepositoryPort repositoryPort, CommunityServicePort communityServicePort) {
+        return new RoomServiceImpl(modelMapper, repositoryPort, communityServicePort);
     }
 }
