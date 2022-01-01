@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Component
 public class ListenerCommunityUserMessages {
-
+/*
     private final ModelMapper modelMapper;
 
     private final UserServiceImpl userService;
@@ -41,6 +41,6 @@ public class ListenerCommunityUserMessages {
             log.error("Error ao ouvir mensagem: {}", e.getMessage());
             throw ApiException.internalError("Error on listener message", "Erro ao ouvir mensagem");
         }
-    }
+    }*/
 
 }

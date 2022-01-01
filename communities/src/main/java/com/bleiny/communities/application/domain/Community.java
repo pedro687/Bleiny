@@ -17,4 +17,6 @@ public class Community {
 
     private String description;
 
+    private Long id;
+
 }

@@ -3,10 +3,7 @@ package com.bleiny.communities.adapters.configurations;
 import com.bleiny.communities.CommunitiesApplication;
 import com.bleiny.communities.adapters.inbound.consumer.ListenerCommunityUserMessages;
 import com.bleiny.communities.application.ports.*;
-import com.bleiny.communities.application.services.CommunityServiceImpl;
-import com.bleiny.communities.application.services.RoomServiceImpl;
-import com.bleiny.communities.application.services.ServerMemberServiceImpl;
-import com.bleiny.communities.application.services.UserServiceImpl;
+import com.bleiny.communities.application.services.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -40,5 +37,10 @@ public class BeanConfiguration {
     @Bean
     RoomServiceImpl roomService(ModelMapper modelMapper, RoomRepositoryPort repositoryPort, CommunityServicePort communityServicePort) {
         return new RoomServiceImpl(modelMapper, repositoryPort, communityServicePort);
+    }
+
+    @Bean
+    TagServerServiceImpl tagServerService(ModelMapper modelMapper, CommunityServicePort communityServicePort, TagServerRepositoryPort repository) {
+        return new TagServerServiceImpl(modelMapper, communityServicePort, repository);
     }
 }

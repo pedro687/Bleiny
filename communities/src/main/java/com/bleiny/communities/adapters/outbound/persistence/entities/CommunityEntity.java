@@ -1,5 +1,6 @@
 package com.bleiny.communities.adapters.outbound.persistence.entities;
 
+import com.bleiny.communities.application.domain.TagServer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class CommunityEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Long id;
 
     private String uuid = UUID.randomUUID().toString();
@@ -42,9 +44,6 @@ public class CommunityEntity implements Serializable {
     inverseJoinColumns = @JoinColumn(name = "member_id"))
     private Set<UserEntity> members;*/
 
-    @ManyToMany
-    @JoinTable(name = "TB_SERVER_LEADER",
-            joinColumns = @JoinColumn( name = "community_id"),
-            inverseJoinColumns = @JoinColumn(name = "leader_id"))
-    private Set<UserEntity> leader;
+    @OneToMany(mappedBy = "community")
+    private List<TagServerEntity> tagServer;
 }

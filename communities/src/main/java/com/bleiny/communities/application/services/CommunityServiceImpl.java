@@ -22,7 +22,7 @@ public class CommunityServiceImpl implements CommunityServicePort {
     }
 
     @Override
-    public CommunityDTO createCommunity(CommunityDTO dto) {
+    public CommunityDTO createCommunity(CommunityDTO dto) throws ApiException {
         log.info("Creating community: {}", dto);
         var convert = modelMapper.map(dto, Community.class);
         communityRepositoryPort.save(convert);

@@ -1,28 +1,29 @@
 package com.bleiny.communities.adapters.outbound.persistence.entities;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
-@Data
+@Entity
+@Table(name = "TB_TAG_SERVER")
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "TB_USER")
-public class UserEntity implements Serializable {
+@Data
+@ToString
+public class TagServerEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String uuid;
+    @ManyToOne
+    private CommunityEntity community;
 
-    private String username;
-
-    @OneToMany
-    private List<CommunityEntity> community;
+    @ManyToOne
+    private TagEntity tag;
 }

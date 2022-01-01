@@ -2,6 +2,7 @@ package com.bleiny.communities.application.services;
 
 import com.bleiny.communities.adapters.inbound.dtos.CommunityDTO;
 import com.bleiny.communities.application.domain.Community;
+import com.bleiny.communities.application.exceptions.ApiException;
 import com.bleiny.communities.application.ports.CommunityRepositoryPort;
 import com.bleiny.communities.application.ports.CommunityServicePort;
 import org.assertj.core.api.Assertions;
@@ -37,7 +38,7 @@ class CommunityServiceImplTest {
 
     @Test
     @DisplayName("Creating Community")
-    void should_create_community() {
+    void should_create_community() throws ApiException {
         var communityDTO = CommunityDTO.builder()
                 .communityLeaderId(1L)
                 .communityName("DC Fans")
