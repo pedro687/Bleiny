@@ -12,4 +12,6 @@ public class BleinyApplication {
         SpringApplication.run(BleinyApplication.class, args);
     }
 
+    
+
 }

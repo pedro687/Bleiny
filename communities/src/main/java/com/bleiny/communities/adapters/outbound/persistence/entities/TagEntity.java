@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @ToString
+@Builder
 public class TagEntity {
 
     @Id

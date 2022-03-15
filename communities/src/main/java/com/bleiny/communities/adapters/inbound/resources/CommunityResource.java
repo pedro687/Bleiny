@@ -20,4 +20,5 @@ public interface CommunityResource {
     @PostMapping
     @ApiOperation(value = "Create an community", response = Community.class)
     public ResponseEntity<CommunityDTO> createCommunity(@RequestBody @Valid CommunityDTO communityDTO) throws ApiException;
+
 }

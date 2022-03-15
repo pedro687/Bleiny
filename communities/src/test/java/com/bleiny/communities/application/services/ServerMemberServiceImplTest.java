@@ -17,21 +17,6 @@ class ServerMemberServiceImplTest {
 
     ServerMemberServiceImpl serverMemberService;
 
-    @MockBean
-    CommunityRepositoryPort communityRepositoryPort;
-
-    @MockBean
-    ServerMemberRepositoryPort serverMemberRepositoryPort;
-
-    @MockBean
-    CommunityServicePort communityServicePort;
-
-    @MockBean
-    UserServicePort userServicePort;
-
-    @MockBean
-    ModelMapper modelMapper;
-
     @Test
     void should_not_join_to_community() {
         ServerMemberEnjoyDTO dto = ServerMemberEnjoyDTO.builder()

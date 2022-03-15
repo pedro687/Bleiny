@@ -19,6 +19,10 @@ zuul:
       path: /bleiny-auth/**
       sensitive-headers: Cookie,Set-Cookie
 
+    community:
+      service-id: ms-communities
+      path: /api/community
+
 eureka:
   client:
     service-url:

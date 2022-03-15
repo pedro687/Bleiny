@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Component
-@FeignClient(name = "bleiny-core", path = "/api/bleiny/user")
+@FeignClient(name = "bleiny-core", path = "/bleiny-core/user")
 public interface BleinyGateway {
 
     @GetMapping(value = "/findByEmail/{email}")

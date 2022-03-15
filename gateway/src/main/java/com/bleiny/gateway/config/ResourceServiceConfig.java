@@ -25,7 +25,8 @@ public class ResourceServiceConfig extends ResourceServerConfigurerAdapter {
     private JwtTokenStore tokenStore;
 
     private static final String[] PUBLIC = { "/bleiny-auth/oauth/token",
-            "/bleiny-core/api/bleiny/user", "/bleiny-core/api/bleiny/user/findByEmail"};
+            "/bleiny-core/bleiny-core/user/register",
+            "/bleiny-core/bleiny-core/user", "/bleiny-core/bleiny-core/user/findByEmail"};
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {

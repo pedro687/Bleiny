@@ -12,3 +12,8 @@ spring:
 kafka:
   topic:
     listener_user: bleiny_community_topic
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

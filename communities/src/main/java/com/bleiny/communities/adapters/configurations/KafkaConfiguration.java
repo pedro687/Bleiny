@@ -11,9 +11,9 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 public class KafkaConfiguration {
-
+/*
     @Bean
     ConsumerFactory<String, String> consumerFactory() {
         Map<String, Object> config = new HashMap<>();
@@ -25,4 +25,6 @@ public class KafkaConfiguration {
 
         return new DefaultKafkaConsumerFactory<>(config);
     }
+
+    */
 }
