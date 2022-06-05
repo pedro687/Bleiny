@@ -5,7 +5,16 @@ server:
 spring:
   jpa:
     database: MYSQL
-
+  kafka:
+    template:
+      default-topic: bleiny_community_topic
+    producer:
+      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
+      key-serializer: org.apache.kafka.common.serialization.LongSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    admin:
+      properties:
+        bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
   datasource:
     url: jdbc:mysql://localhost:3306/bleiny?useTimezone=true&serverTimezone=UTC&createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
     username: root
@@ -14,15 +23,8 @@ spring:
   application:
     name: bleiny-core
 
-eureka:
-  client:
-    service-url:
-        defaultZone: http://localhost:8761/eureka
-
-kafka:
-  topics:
-    community_topic: bleiny_community_topic
-
 log:
   retention:
     hours: 5
+
+

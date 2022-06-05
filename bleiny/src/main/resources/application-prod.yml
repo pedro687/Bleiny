@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /bleiny-core
+spring:
+  jpa:
+    database: MYSQL
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/bleiny?useTimezone=true&serverTimezone=UTC&createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: docker
+
+  application:
+    name: bleiny-core
+
+log:
+  retention:
+    hours: 5
+
+kafka:
+  template:
+    default-topic: bleiny_community_topic
+  producer:
+    bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
+    key-serializer: org.apache.kafka.common.serialization.LongSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer

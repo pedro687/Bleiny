@@ -63,9 +63,10 @@ public class UserService implements IUserService {
         try {
             var savedUser = userRepository.save(user);
             var message = userConverter.userToMessage(savedUser);
-            producerService.sendMessage(message);
+            producerService.sendMessageToCommunityTopic(message);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.info("Erro ao salvar usuário: {}", e.getMessage());
+            e.getStackTrace();
         }
 
         return userDTO;
@@ -74,7 +75,6 @@ public class UserService implements IUserService {
     @Override
     public UserDTO findByEmail(String email) {
         var result = userRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException("User Not Found"));
-        var converter = userConverter.toDto(result);
-        return converter;
+        return userConverter.toDto(result);
     }
 }

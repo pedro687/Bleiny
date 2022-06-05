@@ -4,6 +4,7 @@ import com.spiet.bleiny.api.users.dto.ResponseUserDTO;
 import com.spiet.bleiny.api.users.dto.UserDTO;
 import com.spiet.bleiny.api.users.resources.UserResource;
 import com.spiet.bleiny.api.users.services.IUserService;
+import com.spiet.bleiny.shared.infra.ApiException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +27,8 @@ public class UserController implements UserResource {
     }
 
     @Override
-    public ResponseEntity<?> create(@RequestBody @Valid UserDTO userDTO) {
-        try {
+    public ResponseEntity<UserDTO> create(@RequestBody @Valid UserDTO userDTO) throws ApiException {
             return ResponseEntity.status(201).body(userService.create(userDTO));
-        } catch (Exception e) {
-           return ResponseEntity.badRequest().body(e.getMessage());
-        }
     }
 
     @Override

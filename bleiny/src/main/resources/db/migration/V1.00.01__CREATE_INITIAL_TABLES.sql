@@ -5,8 +5,8 @@ CREATE TABLE IF NOT EXISTS users(
     email varchar(255) unique not null,
     password varchar(255) not null,
     tellphone varchar(11) not null,
-    image varchar(255) default ""
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+    image varchar(255) default null
+    );
 
 CREATE TABLE IF NOT EXISTS address(
     id bigint(20) auto_increment primary key,
@@ -15,4 +15,4 @@ CREATE TABLE IF NOT EXISTS address(
     country varchar(20) not null,
     user_id bigint(20) not null,
     foreign key(user_id) references users(id)
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+);
