@@ -6,10 +6,11 @@ import com.bleiny.communities.application.exceptions.ApiException;
 import com.bleiny.communities.application.ports.CommunityServicePort;
 import com.bleiny.communities.application.ports.RoomRepositoryPort;
 import com.bleiny.communities.application.ports.RoomServicePort;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 
 import java.util.List;
-
+@Slf4j
 public class RoomServiceImpl implements RoomServicePort {
 
     private final ModelMapper modelMapper;
@@ -26,6 +27,7 @@ public class RoomServiceImpl implements RoomServicePort {
 
     @Override
     public Room createRoom(Room room) throws ApiException {
+        log.info("Criando sala");
         var community = communityServicePort.findById(room.getCommunityId());
         return repositoryPort.createRoom(room, modelMapper.map(community, Community.class));
     }

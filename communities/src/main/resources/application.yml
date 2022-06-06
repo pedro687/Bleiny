@@ -9,9 +9,18 @@ spring:
   jpa:
     show-sql: false
 
-kafka:
-  topic:
-    listener_user: bleiny_community_topic
+  kafka:
+    template:
+      default-topic: "bleiny_community_topic"
+    consumer:
+      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
+      key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: communities-events-listener-group
+    producer:
+      bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
+      key-serializer: org.apache.kafka.common.serialization.LongSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 eureka:
   client:
