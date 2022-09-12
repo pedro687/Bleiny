@@ -31,7 +31,7 @@ public class ListenerCommunityUserMessages {
         this.userConverter = userConverter;
     }
 
-    @KafkaListener(topics = "${spring.kafka.template.default-topic}")
+  //  @KafkaListener(topics = "${spring.kafka.template.default-topic}")
     public void listenerMessagesCommunity(String message) throws ApiException {
         log.info("Recebendo mensagem: {}", message);
         try {

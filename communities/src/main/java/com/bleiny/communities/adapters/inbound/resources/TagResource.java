@@ -16,5 +16,5 @@ public interface TagResource {
 
     @PostMapping
     @ApiOperation(value = "Add tag on community", response = Void.class)
-    public ResponseEntity<Void> postTagCommunity(@RequestBody TagServerDTO tagServerDTO);
+    public ResponseEntity<Void> postTagCommunity(@RequestBody @Valid TagServerDTO tagServerDTO);
 }

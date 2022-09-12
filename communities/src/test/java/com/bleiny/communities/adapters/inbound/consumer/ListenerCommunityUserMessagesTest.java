@@ -90,4 +90,25 @@ public class ListenerCommunityUserMessagesTest {
        assert user.getId() == 1L;
     }
 
+    @Test
+    @DisplayName("Integration test error Retry")
+    void eventListenerError() throws JsonProcessingException, ExecutionException, InterruptedException, ApiException {
+        var dto = ReceiveUserMessageDTO.builder()
+                .id(null)
+                .userName(null)
+                .uuid(null)
+                .build();
+
+        var json = objectMapper.writeValueAsString(dto);
+
+        kafkaTemplate.sendDefault(json).get();
+
+        //when
+        CountDownLatch latch = new CountDownLatch(1);
+        latch.await(5, TimeUnit.SECONDS);
+
+        //then
+        Mockito.verify(listener, Mockito.times(3)).listenerMessagesCommunity(Mockito.any(String.class));
+        Mockito.verify(userService, Mockito.times(3)).createUser(Mockito.any(Users.class));
+    }
 }

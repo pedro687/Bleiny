@@ -10,6 +10,7 @@ import com.bleiny.communities.application.exceptions.ApiException;
 import com.bleiny.communities.application.ports.*;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Lazy;
 
 import java.util.List;
 
@@ -40,11 +41,14 @@ public class ServerMemberServiceImpl implements ServerMemberServicePort {
             var user = userServicePort.findById(dto.getIdUser());
             var community = communityServicePort.findById(dto.getIdCommunity());
 
+            community.setMemberQuantity(community.getMemberQuantity() + 1);
+
             var serverMember = ServerMemberEntity.builder()
                     .community(modelMapper.map(community, CommunityEntity.class))
                     .user(modelMapper.map(user, UserEntity.class)).build();
 
             serverMemberRepositoryPort.save(serverMember);
+            communityServicePort.updateCommunity(community);
         } catch (Exception e) {
             log.error("Error on enjoying community: {}", e.getMessage());
             throw ApiException.conflict("Error on enjoying community" , e.getMessage());
@@ -55,4 +59,5 @@ public class ServerMemberServiceImpl implements ServerMemberServicePort {
     public boolean memberAlreadyInCommunity(Long idUser, Long idCommunity) {
         return serverMemberRepositoryPort.memberAlreadyInServer(idUser, idCommunity);
     }
+
 }

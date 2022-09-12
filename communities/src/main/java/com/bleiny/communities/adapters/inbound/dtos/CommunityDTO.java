@@ -1,6 +1,7 @@
 package com.bleiny.communities.adapters.inbound.dtos;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,5 +27,9 @@ public class CommunityDTO {
 
     @NotBlank
     private String description;
+
+    private Integer memberQuantity;
+
+    private Long id;
 
 }

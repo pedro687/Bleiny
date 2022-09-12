@@ -8,4 +8,5 @@ import com.bleiny.communities.application.domain.ServerMember;
 public interface ServerMemberRepositoryPort {
     void save(ServerMemberEntity serverMemberEntity);
     boolean memberAlreadyInServer(Long idUser, Long idCommunity);
+
 }

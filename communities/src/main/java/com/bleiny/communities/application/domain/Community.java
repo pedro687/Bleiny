@@ -10,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class Community {
+    private Long id;
 
     private String communityName;
 
@@ -17,6 +18,7 @@ public class Community {
 
     private String description;
 
-    private Long id;
+    private Integer memberQuantity;
 
+    private String uuid;
 }

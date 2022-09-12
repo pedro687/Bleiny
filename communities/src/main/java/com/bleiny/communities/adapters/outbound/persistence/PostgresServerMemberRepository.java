@@ -31,4 +31,5 @@ public class PostgresServerMemberRepository implements ServerMemberRepositoryPor
     public boolean memberAlreadyInServer(Long idUser, Long idCommunity) {
         return repository.existsByUserIdAndCommunityId(idUser, idCommunity);
     }
+
 }

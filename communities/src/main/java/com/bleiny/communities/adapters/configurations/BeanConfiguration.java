@@ -2,13 +2,14 @@ package com.bleiny.communities.adapters.configurations;
 
 import com.bleiny.communities.CommunitiesApplication;
 import com.bleiny.communities.adapters.inbound.consumer.ListenerCommunityUserMessages;
+import com.bleiny.communities.adapters.outbound.persistence.SpringDataCommunityRepository;
 import com.bleiny.communities.application.ports.*;
 import com.bleiny.communities.application.services.*;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 @Configuration
 @ComponentScan(basePackageClasses = CommunitiesApplication.class)
@@ -19,8 +20,10 @@ public class BeanConfiguration {
     }
 
     @Bean
-    CommunityServiceImpl communityService(CommunityRepositoryPort repository, ModelMapper modelMapper) {
-        return new CommunityServiceImpl(repository, modelMapper);
+    CommunityServiceImpl communityService(CommunityRepositoryPort repository, ModelMapper modelMapper,
+                                          @Lazy ServerMemberServicePort serverMemberServicePort, SpringDataCommunityRepository springDataCommunityRepository
+    ) {
+        return new CommunityServiceImpl(repository, modelMapper, serverMemberServicePort, springDataCommunityRepository);
     }
 
     @Bean
